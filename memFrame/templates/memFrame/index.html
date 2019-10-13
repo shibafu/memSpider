@@ -1,0 +1,24 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <!-- Django ヘルパーロード -->
+    {% load static %}
+    <meta content="ja" http-equiv="Content-Language"/>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+    <title>welcomePage</title>
+    <link rel="stylesheet" type="text/css"
+    href="{% static 'memFrame/css/default.css' %}" />
+</head>
+
+<body>
+
+<h1>{{title}}</h1>
+<p>this is simple page</p>
+<p>{{msg}}</p>
+
+</body>
+
+</html>
