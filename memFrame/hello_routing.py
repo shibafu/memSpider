@@ -6,4 +6,6 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='index'),  # Welcomeページ
+    path('next', views.next, name='next'),  # 次へページ
+
 ]

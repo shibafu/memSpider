@@ -11,3 +11,16 @@ def index(request) :
     }
 
     return render(request, 'memFrame/index.html', params)
+
+
+
+def next(request) :
+
+    params = {
+        'title':'nextPage',
+        'msg':'リンク先のページです'
+    }
+
+    return render(request, 'memFrame/index.html', params)
+
+
