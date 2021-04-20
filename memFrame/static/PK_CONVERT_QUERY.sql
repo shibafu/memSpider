@@ -1,0 +1,1 @@
+ALTER SEQUENCE "memFrame_friend_id_seq" OWNED BY "memFrame_friend".id;

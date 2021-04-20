@@ -1,4 +1,50 @@
 body {
-    color: gray;
+    color: #666600;
+    background: #FFFFCC;
     font-size: 16pt;
+}
+
+.title {
+  padding-left: 30px;
+  border-left: 4px dashed #000;
+}
+
+.withicon {
+   background-repeat: no-repeat;
+   background-position: 2px center;
+   padding-left: 21px;
+}
+
+.effect_mock {
+   padding: 80px;
+   background: #443113 url("CSS_Parts/ui-bg_diamond_8_443113_10x8.png") 50% 50% repeat;
+   box-shadow: 0 3px 18px -4px rgba(0, 0, 0, 0.8);
+}
+
+input[type="text"].inputtext {
+  width: 600px;
+  border: 2px solid #aaa;
+  border-radius: 4px;
+  margin: 8px 0;
+  outline: none;
+  padding: 8px;
+  padding-left: 40px;
+  box-sizing: border-box;
+  transition: 0.3s;
+}
+
+input[type="password"].inputtext {
+  width: 600px;
+  border: 2px solid #aaa;
+  border-radius: 4px;
+  margin: 8px 0;
+  outline: none;
+  padding: 8px;
+  padding-left: 40px;
+  box-sizing: border-box;
+  transition: 0.3s;
+}
+
+span{
+    display: inline-block;
 }

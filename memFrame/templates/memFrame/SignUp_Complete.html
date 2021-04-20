@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <!-- Django 静的ファイルをロードする -->
+    {% load static %}
+    <meta content="ja" http-equiv="Content-Language"/>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+	<title>Welcome To MemFrame</title>
+    <script type="text/javascript"
+          src="{% static 'memFrame/jquery/jquery-3.6.0.js' %}"></script>
+    <script type="text/javascript"
+          src="{% static 'memFrame/jquery-ui/jquery-ui.js' %}"></script>
+    <link rel="stylesheet" type="text/css"
+          href="{% static 'memFrame/jquery-ui/jquery-ui.css' %}" ></link>
+    <link rel="stylesheet" type="text/css"
+          href="{% static 'memFrame/jquery-ui/jquery-ui.structure.css' %}"></link>
+    <link rel="stylesheet" type="text/css"
+          href="{% static 'memFrame/jquery-ui/jquery-ui.theme.css' %}"></link>
+
+    <link rel="stylesheet" type="text/css"
+          href="{% static 'memFrame/css/default.css' %}" /></link>
+</head>
+
+<body>
+<div class="title">
+	<img class="withicon"
+     src="{% static 'memFrame/icon/user.png' %}"
+     alt="RegisterCompleteIcon"
+	width="2%"
+	height="2%">
+	<span>ユーザー登録が完了しました！</span>
+</div>
+
+  <style type="text/css">
+.icon_email {
+    background-image: url({% static 'memFrame/icon/email.png' %});
+    background-size:5%
+}
+  </style>
+
+<script type="text/javascript">
+$(function() {
+	#homeボタン化
+  	$('.home').button();
+  	#ボタンクリック
+	$('#home').on('click', function() {
+  		location.href="127.0.0.1:8000/home";
+	});
+});
+</script>
+	<br/>
+	<div>
+		<button class="home"/>ホーム</button>
+	</div>
+</body>
+
+</html>

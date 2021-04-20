@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <!-- Django 静的ファイルをロードする -->
+    {% load static %}
+    <meta content="ja" http-equiv="Content-Language"/>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+    <title>welcomePage</title>
+    <link rel="stylesheet" type="text/css"
+          href="{% static 'memFrame/css/default.css' %}"/>
+</head>
+
+<body>
+
+<!-- タイトルとパラーメーター -->
+<h1>{{title}}</h1>
+<p>this is simple page</p>
+<p>{{msg}}</p>
+
+<!-- リンクを作る -->
+<a href="{% url 'index' %}">index</a>
+
+<p>{{message}}</p>
+<!-- フォームをポストする -->
+<form action="{% url 'index' %}" method="post">
+    {% csrf_token %}
+    {{ form.as_table }}
+    <tr>
+        <td>
+            <input type="submit" value="クリックしてね！"/>
+        </td>
+    </tr>
+</form>
+
+<table>
+    <tr>
+        <td>ID</td>
+        <td>NAME</td>
+        <td>GENDER</td>
+        <td>MAIL</td>
+        <td>AGE</td>
+        <td>BIRTHDAY</td>
+    </tr>
+    {% for item in data %}
+    <tr>
+        <td>{{ item.id }}</td>
+        <td>{{ item.name }}</td>
+        <td>{% if item.gender == False %}male{% endif %}
+            {% if item.gender == True %}female{% endif %}
+        </td>
+        <td>{{ item.mail }}</td>
+        <td>{{item.age}}</td>
+        <td>{{item.birthday}}</td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td>No Data</td>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+
+</html>

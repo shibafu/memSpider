@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <!-- Django 静的ファイルをロードする -->
+    {% load static %}
+    <meta content="ja" http-equiv="Content-Language"/>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+	<title>Welcome To MemFrame</title>
+    <script type="text/javascript"
+          src="{% static 'memFrame/jquery/jquery-3.6.0.js' %}"></script>
+    <script type="text/javascript"
+          src="{% static 'memFrame/jquery-ui/jquery-ui.js' %}"></script>
+    <link rel="stylesheet" type="text/css"
+          href="{% static 'memFrame/jquery-ui/jquery-ui.css' %}" ></link>
+    <link rel="stylesheet" type="text/css"
+          href="{% static 'memFrame/jquery-ui/jquery-ui.structure.css' %}"></link>
+    <link rel="stylesheet" type="text/css"
+          href="{% static 'memFrame/jquery-ui/jquery-ui.theme.css' %}"></link>
+
+    <link rel="stylesheet" type="text/css"
+          href="{% static 'memFrame/css/default.css' %}" /></link>
+</head>
+
+<body>
+
+
+  <style type="text/css">
+.icon_email {
+    background-image: url({% static 'memFrame/icon/email.png' %});
+    background-size:5%
+}
+.icon_password {
+    background-image: url({% static 'memFrame/icon/password.png' %});
+    background-size:5%
+}
+.icon_picture {
+    background-image: url({% static 'memFrame/icon/picture.png' %});
+    background-size:5%
+}
+.icon_user {
+    background-image: url({% static 'memFrame/icon/user.png' %});
+    background-size:5%
+}
+</style>
+
+<script type="text/javascript">
+$(function() {
+  $('input[type="submit"].signin').button();
+});
+</script>
+
+<div>
+	<span>サインインしましょう！</span>
+</div>
+
+<form action="{% url 'signin' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+	<div>
+		<span id="Label_Username">ユーザー名（P.N）orメール</span>
+		<span style="padding-left:10px">
+    		{{ form.name_or_mail }}
+		</span>
+	</div>
+	<div>
+		<span id="Label_Password">パスワード</span>
+		<span style="padding-left:170px">
+    		{{ form.password }}
+		</span>
+	</div>
+	<div>
+		<span><input name="signin" class="signin" type="submit" value="サインイン" />
+	</div>
+</form>
+
+</body>
+
+</html>

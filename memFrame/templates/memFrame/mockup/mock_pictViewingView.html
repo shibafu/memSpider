@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta content="ja" http-equiv="Content-Language" />
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+	<!-- Django 静的ファイルをロードする -->
+    {% load static %}
+    <meta content="ja" http-equiv="Content-Language"/>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+    <link rel="stylesheet" type="text/css"
+          href="{% static 'memFrame/css/default.css' %}"/>
+	<title>画像入力フォーム</title>
+</head>
+<body>
+<!-- タイトルとパラーメーター -->
+<h1>画像一覧ビュー</h1>
+<p>アップロードされた画像です</p>
+
+<p>変数パラメーター</p>
+<p>{{ MEDIA_URL }}</p>
+<p>{{ picts }}</p>
+<p>変数パラメーター</p>
+{% for pict in picts %}
+    <h2>{{ pict.name }}</h2>
+    <img src='{{pict.image.url}}' width=200>
+{% endfor %}
+
+
+</html>

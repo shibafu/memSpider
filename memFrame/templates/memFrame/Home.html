@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="ja" http-equiv="Content-Language" />
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>アップロード</title>
+
+    <!-- Django 静的ファイルをロードする -->
+    {% load static %}
+    <meta content="ja" http-equiv="Content-Language"/>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+	<title>Welcome To MemFrame</title>
+    <script type="text/javascript"
+          src="{% static 'memFrame/jquery/jquery-3.6.0.js' %}"></script>
+    <script type="text/javascript"
+          src="{% static 'memFrame/jquery-ui/jquery-ui.js' %}"></script>
+    <link rel="stylesheet" type="text/css"
+          href="{% static 'memFrame/jquery-ui/jquery-ui.css' %}" ></link>
+    <link rel="stylesheet" type="text/css"
+          href="{% static 'memFrame/jquery-ui/jquery-ui.structure.css' %}"></link>
+    <link rel="stylesheet" type="text/css"
+          href="{% static 'memFrame/jquery-ui/jquery-ui.theme.css' %}"></link>
+
+    <link rel="stylesheet" type="text/css"
+          href="{% static 'memFrame/css/default.css' %}" /></link>
+</head>
+
+
+<body>
+
+
+<style type="text/css">
+.effect {
+   padding: 80px;
+   background: #443113 url({% static 'memFrame/CSS_Parts/ui-bg_diamond_8_443113_10x8.png' %}) 50% 50% repeat;
+   box-shadow: 0 3px 18px -4px rgba(0, 0, 0, 0.8);
+}
+</style>
+<p>/*メニューヘッダー*/</p>
+<p>　{{ username }}さんのアルバム</p>
+
+<div>
+
+{% for picture in pictures %}
+	<div>
+		<div>タイトル:{{ picture.name }}</div>
+		<div>
+            <img class="effect" src="/media/{{ picture.image }}" title="{{ picture.name }}">
+        </div>
+	</div>
+{% empty %}
+	<div>
+		<div>画像がありません・・・</div>
+	</div>
+{% endfor %}
+</div>
+
+</body>
+
+</html>

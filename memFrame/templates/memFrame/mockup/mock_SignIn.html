@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta content="ja" http-equiv="Content-Language" />
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+	<!-- Django 静的ファイルをロードする -->
+    {% load static %}
+    <meta content="ja" http-equiv="Content-Language"/>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+    <link rel="stylesheet" type="text/css"
+          href="{% static 'memFrame/css/default.css' %}"/>
+	<title>サインインフォーム</title>
+</head>
+<body>
+<!-- タイトルとパラーメーター -->
+<h1>サインインフォーム</h1>
+<p>サインインしてください！</p>
+
+<form action="{% url 'signin' %}" method="post" enctype="multipart/form-data">
+    ユーザーネームか、メールアドレス
+    {% csrf_token %}
+    {{ form.name_or_mail }}
+    パスワード
+    {{ form.password }}
+    <tr>
+        <td>
+            <input type="submit" value="サインイン！"/>
+        </td>
+    </tr>
+</form>
+</body>
+</html>
