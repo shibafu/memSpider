@@ -2,7 +2,6 @@
 画像関連の処理を行うサービスです
 @author Nozawa
 '''
-from memFrame.ModelForm.mock_PictUploadForm import PictUploadForm
 from memFrame.models import M_User
 from memFrame.models.T_Picture import T_Picture
 import datetime
