@@ -7,6 +7,6 @@ from memFrame.viewsTemplate.PictUploadView import PictUploadView
 from memFrame.viewsTemplate.mockup.PictureUploadView import PictureUploadView
 
 urlpatterns = [
-    path('/PictUpload', PictUploadView.as_view(), name='PictUpload'),  # 画像アップロードページ
+    path('PictUpload', PictUploadView.as_view(), name='PictUpload'),  # 画像アップロードページ
 
 ]

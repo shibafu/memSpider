@@ -8,7 +8,7 @@ from memFrame.viewsTemplate.SignInView import SignInView
 from memFrame.viewsTemplate.SignUpView import SignUpView
 
 urlpatterns = [
-    path('/signup/', SignUpView.as_view(), name='signup'),  # ユーザー登録ページ
-    path('/signin/', SignInView.as_view(), name='signin'),  # ユーザーサインインページ
+    path('signup/', SignUpView.as_view(), name='signup'),  # ユーザー登録ページ
+    path('signin/', SignInView.as_view(), name='signin'),  # ユーザーサインインページ
 
 ]

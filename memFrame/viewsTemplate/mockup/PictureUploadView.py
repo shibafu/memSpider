@@ -2,7 +2,6 @@ from django.shortcuts import render
 from django.views.generic import TemplateView
 
 from memFrame.service import PictService
-from memFrame.ModelForm import mock_PictUploadForm
 
 '''
 画像アップロードビューです
