@@ -41,11 +41,11 @@
 
 <script type="text/javascript">
 $(function() {
-	#homeボタン化
+	// homeボタン化
   	$('.home').button();
-  	#ボタンクリック
-	$('#home').on('click', function() {
-  		location.href="127.0.0.1:8000/home";
+  	// ボタンクリック
+	$('.home').on('click', function() {
+  		location.href="/home";
 	});
 });
 </script>

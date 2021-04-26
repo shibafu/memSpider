@@ -5,10 +5,12 @@
 from django.urls import path
 
 from memFrame.viewsTemplate.SignInView import SignInView
+from memFrame.viewsTemplate.SignUpCompleteView import SignUpCompleteView
 from memFrame.viewsTemplate.SignUpView import SignUpView
 
 urlpatterns = [
-    path('signup/', SignUpView.as_view(), name='signup'),  # ユーザー登録ページ
-    path('signin/', SignInView.as_view(), name='signin'),  # ユーザーサインインページ
+    path('signin/', SignInView.as_view(), name='signin'),  # ユーザー登録ページ
+    path('signup/', SignUpView.as_view(), name='signup'),  # ユーザー登録完了ページ
+    path('signUpComplete/', SignUpCompleteView.as_view(), name='signUpComplete'),  # ユーザーサインインページ
 
 ]

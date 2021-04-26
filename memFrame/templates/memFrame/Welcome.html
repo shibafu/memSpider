@@ -23,10 +23,15 @@
 <body>
 <script type="text/javascript">
 $(function() {
+  	//サインインボタン修飾
     $('.signin').button();
-  	//ボタンクリック
 	$('.signin').on('click', function() {
-  		location.href="127.0.0.1:8000/signin";
+  		location.href="/account/signin";
+	});
+	// サインアップボタン修飾
+    $('.signup').button();
+	$('.signup').on('click', function() {
+  		location.href="/account/signup";
 	});
 
 });
@@ -35,7 +40,7 @@ $(function() {
         <div>Welcome To MemFrame </div>
     </h1>
     <div>
-		<button class="signin"/>サインイン</button>
+		<button class="signin"/>サインイン</button><button class="signup"/>サインアップ</button>
     </div>
 </body>
 
