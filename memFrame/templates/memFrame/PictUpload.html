@@ -62,7 +62,7 @@ $(function() {
 <form action="{% url 'PictUpload' %}" method="post" enctype="multipart/form-data">
     {% csrf_token %}
 	<div>
-		<span id="Label_Username">ユーザー名</span>
+		<span id="Label_Username">タイトル</span>
 		<span style="padding-left:10px">
     		{{ form.name }}
 		</span>
