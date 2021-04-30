@@ -28,6 +28,8 @@
 
 <body>
 
+<div id="header"></div>
+
   <style type="text/css">
 .icon_email {
     background-image: url({% static 'memFrame/icon/email.png' %});
@@ -50,6 +52,7 @@
 <script type="text/javascript">
 $(function() {
   $('input[type="submit"].upload').button();
+  $("#header").load("{% static 'memFrame/HTML_Parts/Header.html' %}");
 });
 </script>
 
