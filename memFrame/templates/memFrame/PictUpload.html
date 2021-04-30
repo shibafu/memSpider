@@ -15,6 +15,8 @@
           src="{% static 'memFrame/jquery/jquery-3.6.0.js' %}"></script>
     <script type="text/javascript"
           src="{% static 'memFrame/jquery-ui/jquery-ui.js' %}"></script>
+    <script type="text/javascript"
+          src="{% static 'memFrame/js/default.js' %}"></script>
     <link rel="stylesheet" type="text/css"
           href="{% static 'memFrame/jquery-ui/jquery-ui.css' %}" ></link>
     <link rel="stylesheet" type="text/css"
@@ -24,6 +26,8 @@
 
     <link rel="stylesheet" type="text/css"
           href="{% static 'memFrame/css/default.css' %}" /></link>
+    <link rel="stylesheet" type="text/css"
+          href="{% static 'memFrame/css/header_decoration.css' %}" /></link>
 </head>
 
 <body>
@@ -50,9 +54,18 @@
 </style>
 
 <script type="text/javascript">
-$(function() {
-  $('input[type="submit"].upload').button();
-  $("#header").load("{% static 'memFrame/HTML_Parts/Header.html' %}");
+
+$(document).ready(function(){
+  	$('input[type="submit"].upload').button();
+	// ヘッダー読み込み
+	$("#header").load("{% static 'memFrame/HTML_Parts/Header.html' %}", function(){
+  		// ヘッダーにアニメーション付加
+   		$(".menu_item").hide();
+  		// メニュー表示
+   		$("#menu_btn").click(function() {
+            $(".menu_item").slideToggle(400);
+   		});
+	});
 });
 </script>
 

@@ -43,27 +43,21 @@
 </style>
 
 <script type="text/javascript">
-// ヘッダー読み込み
+
 $(document).ready(function(){
-  $("#header").load("{% static 'memFrame/HTML_Parts/Header.html' %}");
-});
-  // 読み込み後の処理
-$(window).on('load', function() {
-   $(".menu_item").hide();
-  // メニュー表示
-   $("#menu_btn").click(function() {
-        $(".menu_item").animate({
-            height : "toggle"
+// ヘッダー読み込み
+    $("#header").load("{% static 'memFrame/HTML_Parts/Header.html' %}", function(){
+
+   	$(".menu_item").hide();
+    // ヘッダーにアニメーション付加
+    // メニュー表示
+        $("#menu_btn").click(function() {
+            $(".menu_item").slideToggle(400);
         });
-   });
+    });
 });
 </script>
-
-<p>/*メニューヘッダー*/</p>
-<p>　{{ username }}さんのアルバム</p>
-
 <div>
-
 {% for picture in pictures %}
 	<div>
 		<div>タイトル:{{ picture.name }}</div>
