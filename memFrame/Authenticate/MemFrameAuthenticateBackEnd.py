@@ -46,4 +46,3 @@ class MemFrameBackAuthenticateEnd(BaseBackend):
         user.UserTokenId = token
         user.save()
         return token
-

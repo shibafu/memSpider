@@ -91,21 +91,37 @@ class UserService:
         return request
 
     #認可処理を行う
-    def authUser(self, request):
-        #DBから認証トークン情報を取得
-        jsonedToken = request.session['AuthenticateToken']
-        #有効開始期間が今日より先
-        tokenObj:T_UserToken = serializers.deserialize(T_UserToken, jsonedToken)
-        if(tokenObj.applyDateStart > datetime.now):
-            #例外
-            return None;
-        #有効終了機関が今日より後
-        elif(tokenObj.applyDateStart > datetime.now):
-            #例外
-            return None;
+    #未実装
+    #def authUser(self, request):
+    #    #DBから認証トークン情報を取得
+    #    jsonedToken = request.session['AuthenticateToken']
+    #    #有効開始期間が今日より先
+    #    tokenObj:T_UserToken = serializers.deserialize(T_UserToken, jsonedToken)
+    #     if(tokenObj.applyDateStart > datetime.now):
+    #         #例外
+    #         return None;
+    #     #有効終了機関が今日より後
+    #     elif(tokenObj.applyDateStart > datetime.now):
+    #         #例外
+    #         return None;
+    #
+    #     #Trueを返す
+    #     return tokenObj;
 
-        #Trueを返す
-        return tokenObj;
+    #ユーザートークンを削除し、ログアウトする
+    def logOut(self, request):
+        #DBから認証トークン情報を取得
+        jsonedToken = request.session.get('AuthenticateToken')
+        #有効開始期間が今日より先
+        tokenInDB = base64.b64decode(jsonedToken)
+        userToken:T_UserToken = T_UserToken.objects.filter(AuthenticateToken=tokenInDB, applyDateEnd__gte=datetime.datetime.now())
+
+        #DBからユーザートークンを削除
+        userToken.delete()
+
+        # セッション&クッキー 削除
+        request.session.flush()
+        return None
 
     #Idでユーザーを取得します
     def serchUserById(self, id):
